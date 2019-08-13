@@ -2,6 +2,7 @@
   <div>
     <div>
       <span>{{result}}</span>
+      <el-button @click="send('发送biubiu')">发送</el-button>
     </div>
   </div>
 </template>
@@ -36,19 +37,19 @@
           this.socket.onmessage = this.getMessage
         }
       },
-      open: function () {
+      open() {
         console.log("socket连接成功")
       },
-      error: function () {
+      error() {
         console.log("连接错误")
       },
-      getMessage: function (msg) {
+      getMessage(msg) {
         console.log(msg.data)
       },
-      send: function () {
+      send(params){
         this.socket.send(params)
       },
-      close: function () {
+      close (){
         console.log("socket已经关闭")
       }
     },
