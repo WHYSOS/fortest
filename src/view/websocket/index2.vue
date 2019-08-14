@@ -36,6 +36,8 @@
         }else{
           // 实例化socket
           this.socket = new WebSocket(this.path)
+
+          this.socket =
           // 监听socket连接
           this.socket.onopen = this.open
           // 监听socket错误信息
@@ -49,6 +51,13 @@
       },
       error() {
         console.log("连接错误")
+      },
+      login(){
+        let message = {
+          type: "login",
+          userId: "1111"
+        }
+        socket.send(JSON.stringify(message));
       },
       getMessage(msg) {
         this.returnMsg.push(msg.data)
