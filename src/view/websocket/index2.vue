@@ -14,7 +14,7 @@
 
 <script>
   export default {
-    name: 'index',
+    name: 'index2',
     data(){
       return{
         socket:null,
