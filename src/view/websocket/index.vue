@@ -36,8 +36,10 @@
         }else{
           // 实例化socket
           this.socket = new WebSocket(this.path)
-          // 监听socket连接
-          this.socket.onopen = this.open
+
+          this.socket =
+            // 监听socket连接
+            this.socket.onopen = this.open
           // 监听socket错误信息
           this.socket.onerror = this.error
           // 监听socket消息
@@ -50,12 +52,26 @@
       error() {
         console.log("连接错误")
       },
+      login(){
+        let message = {
+          type: "login",
+          userId: "222",
+          msg:this.sendMsg
+        }
+        this.socket.send(JSON.stringify(message));
+      },
       getMessage(msg) {
         this.returnMsg.push(msg.data)
         console.log(msg.data)
       },
       send(){
-        this.socket.send(this.sendMsg)
+        let message = {
+          type: "sendOther",
+          userId: "222",
+          msg:this.this.sendMsg,
+          receiver:"111"
+        }
+        this.socket.send(JSON.stringify(message))
       },
       close (){
         console.log("socket已经关闭")

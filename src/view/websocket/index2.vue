@@ -14,7 +14,7 @@
 
 <script>
   export default {
-    name: 'index2',
+    name: 'index',
     data(){
       return{
         socket:null,
@@ -38,8 +38,8 @@
           this.socket = new WebSocket(this.path)
 
           this.socket =
-          // 监听socket连接
-          this.socket.onopen = this.open
+            // 监听socket连接
+            this.socket.onopen = this.open
           // 监听socket错误信息
           this.socket.onerror = this.error
           // 监听socket消息
@@ -55,16 +55,23 @@
       login(){
         let message = {
           type: "login",
-          userId: "1111"
+          userId: "111",
+          msg:this.sendMsg
         }
-        socket.send(JSON.stringify(message));
+        this.socket.send(JSON.stringify(message));
       },
       getMessage(msg) {
         this.returnMsg.push(msg.data)
         console.log(msg.data)
       },
       send(){
-        this.socket.send(this.sendMsg)
+        let message = {
+          type: "sendOther",
+          userId: "111",
+          msg:this.this.sendMsg,
+          receiver:"222"
+        }
+        this.socket.send(JSON.stringify(message))
       },
       close (){
         console.log("socket已经关闭")
