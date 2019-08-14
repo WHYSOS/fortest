@@ -69,7 +69,7 @@
           type: "sendOther",
           userId: "222",
           msg:this.this.sendMsg,
-          receiver:"111"
+          receiverId:"111"
         }
         this.socket.send(JSON.stringify(message))
       },
