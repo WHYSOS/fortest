@@ -31,7 +31,7 @@ export default new Router({
       component: websocket
     },
     {
-      path: '/websocke2',
+      path: '/websocket2',
       name: 'websocket2',
       component: websocket2
     }

@@ -37,7 +37,6 @@
           // 实例化socket
           this.socket = new WebSocket(this.path)
 
-          this.socket =
             // 监听socket连接
             this.socket.onopen = this.open
           // 监听socket错误信息
@@ -68,7 +67,7 @@
         let message = {
           type: "sendOther",
           userId: "222",
-          msg:this.this.sendMsg,
+          msg:this.sendMsg,
           receiverId:"111"
         }
         this.socket.send(JSON.stringify(message))
